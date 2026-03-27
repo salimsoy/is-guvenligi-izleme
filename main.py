@@ -87,7 +87,9 @@ class Perception:
             
         cv2.destroyAllWindows()
         print("Sistem kapandı")
+   
         
+   
 if __name__ == "__main__":
    
     proses = Perception()
