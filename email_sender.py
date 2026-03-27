@@ -5,22 +5,27 @@ from email.mime.text import MIMEText
 
 class EmailSender:
     def __init__(self, sender_mail, sender_pass, to_mail):
+        # Gönderici ve alıcı mail bilgilerini sisteme tanımlar
         self.sender_mail = sender_mail
         self.sender_pass = sender_pass
         self.to_mail = to_mail
 
     def alert_gonder(self, subject, message_body, foto_path):
         try:
+            # mail taslağını oluşturur ve başlıkları girer
             msg = MIMEMultipart()
             msg['Subject'] = subject
             msg['From'] = self.sender_mail
             msg['To'] = self.to_mail
             
+            # Mesaj metnine ihlal fotoğrafının kayıtlı olduğu konumu ekle
             violation_msg = f"{message_body}\n ihlal fotoğrafının konumu:\n{foto_path}"
             msg.attach(MIMEText(violation_msg, "plain"))
-        
+            
+            # mail sunucusuna bağlanır
             server = smtplib.SMTP('smtp.gmail.com', 587)
             server.starttls()
+            # Gönderici hesabına giriş yapar mesajı iletir ve sunucudan çıkış yapar
             server.login(self.sender_mail, self.sender_pass)
             server.send_message(msg)
             server.quit()
