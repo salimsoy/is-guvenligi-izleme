@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
 # .env dosyasında değişkenleri çeker
 CAMERA_ID = os.getenv("CAMERA_ID")
