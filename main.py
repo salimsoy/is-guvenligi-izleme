@@ -1,10 +1,10 @@
 import cv2
 from ultralytics import YOLO
-from camera import VideoAkisi
-from warning import HumanErrorDetection
-from logger import Logger
-from email_sender import EmailSender
-from config import CAMERA_ID, MODEL_PATH, SENDER_MAIL, SENDER_PASSWORD, RECIPIENT_MAIL
+from src.camera import VideoAkisi
+from src.warning import HumanErrorDetection
+from src.logger import Logger
+from src.email_sender import EmailSender
+from src.config import CAMERA_ID, MODEL_PATH, SENDER_MAIL, SENDER_PASSWORD, RECIPIENT_MAIL
 
 class Perception:
     def __init__(self):

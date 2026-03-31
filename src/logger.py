@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import cv2
 import json
 import os
-from config import MAX_LOG_WAIT_MINUTE, LOG_FİLE, FOTO_FOLDER
+from src.config import MAX_LOG_WAIT_MINUTE, LOG_FİLE, FOTO_FOLDER
 
 class Logger:
     def __init__(self, mail_class=None):

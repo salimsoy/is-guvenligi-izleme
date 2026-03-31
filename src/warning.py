@@ -1,4 +1,4 @@
-from config import ERROR_RATE, ERROR_THRESHOLD
+from src.config import ERROR_RATE, ERROR_THRESHOLD
 
 class HumanErrorDetection:
     
