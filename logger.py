@@ -80,7 +80,11 @@ class Logger:
                     # İhlal anının fotoğrafını kaydeder
                     if frame is not None:
                         cv2.imwrite(foto_path, frame)
-                
+                    
+                    if os.path.exists(foto_path):
+                        curr_photo_path = foto_path
+                    else:
+                        curr_photo_path = None
                     # Log kaydını JSON formatında dosyaya ekler
                     entry = {
                         "person_id": person_id,
@@ -88,7 +92,7 @@ class Logger:
                         "saat": date_hour,
                         "kamera_id": str(camera_id),
                         "ihlal_turu": message,
-                        "fotograf_yolu": foto_path
+                        "fotograf_yolu": curr_photo_path
                     }
                     with open(self.log_file, 'a', encoding='utf-8') as f:
                         json_record = json.dumps(entry, ensure_ascii=False)
